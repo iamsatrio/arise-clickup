@@ -17,31 +17,31 @@ async function checkIn(payload, type) {
     try {
         let task = payload;
         let check_in_time = moment.unix(task.date_created) ? moment.unix(task.date_created) : false;
-        let applicant = moment.unix(task.creator.id) ? moment.unix(task.creator.id) : false;
+        let applicant = task.creator.id ? task.creator.id : false;
         
         // Set check in time
         console.log(check_in_time);    
 
-        await axios({
-            method: "POST",
-            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${check_in_time_cf_id}`,
-            data: {
-                "value": check_in_time,
-                "value_options": {
-                    "time": true
-                    }
-            }
-        });
+        // await axios({
+        //     method: "POST",
+        //     url: `https://api.clickup.com/api/v2/task/${task.id}/field/${check_in_time_cf_id}`,
+        //     data: {
+        //         "value": check_in_time,
+        //         "value_options": {
+        //             "time": true
+        //             }
+        //     }
+        // });
         
         // Set applicant
         console.log(applicant);
-        await axios({
-            method: "POST",
-            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${applicant_cf_id}`,
-            data: {
-                "value": applicant
-            }
-        });
+        // await axios({
+        //     method: "POST",
+        //     url: `https://api.clickup.com/api/v2/task/${task.id}/field/${applicant_cf_id}`,
+        //     data: {
+        //         "value": applicant
+        //     }
+        // });
 
         return 'OK'
     } catch (error) {
