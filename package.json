@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-posgresql",
+  "name": "arise-clickup",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -19,5 +19,17 @@
   },
   "devDependencies": {
     "@architect/sandbox": "^3.3.7"
-  }
+  },
+  "description": "A demo Quotes REST API using Node.js and PostgreSQL. Built with Express Js for this [Node.js PostgreSQL tutorial](https://geshan.com.np/blog/2021/01/nodejs-postgresql-tutorial/).",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/iamsatrio/arise-clickup.git"
+  },
+  "author": "Satrio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamsatrio/arise-clickup/issues"
+  },
+  "homepage": "https://github.com/iamsatrio/arise-clickup#readme"
 }
