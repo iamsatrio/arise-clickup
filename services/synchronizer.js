@@ -49,8 +49,8 @@ async function checkIn(payload, type) {
             method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
             data: {
-                "value": {
-                    "assignees": [applicant]
+                "assignees": {
+                    "add": [applicant]
                 }
             }
         });
