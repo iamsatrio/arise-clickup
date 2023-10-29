@@ -46,7 +46,7 @@ async function checkIn(payload, type) {
 
         //Set assignee
         await axios({
-            method: "[PUT]",
+            method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
             data: {
                 "value": {
