@@ -1,0 +1,836 @@
+{
+    "id": "7e6719f9-71bd-4bce-b9b2-7a2d709d20bc",
+    "trigger_id": "e901726c-2f16-41af-8a9e-b0ab64f76985",
+    "date": "2022-01-30T00:41:26.719Z",
+    "payload": {
+        "id": "25dpj9j",
+        "custom_id": null,
+        "name": "Halo A",
+        "text_content": null,
+        "description": null,
+        "status": {
+            "id": "c97532672_wCAigUkL",
+            "status": "backlog",
+            "color": "#d3d3d3",
+            "orderindex": 0,
+            "type": "open"
+        },
+        "orderindex": "999954.00000000000000000000000000000000",
+        "date_created": "1643502882339",
+        "date_updated": "1643503284895",
+        "date_closed": null,
+        "archived": false,
+        "creator": {
+            "id": 37643430,
+            "username": "Jauhar Fatawi",
+            "color": "#ffa727",
+            "email": "jauhar@majoo.id",
+            "profilePicture": null
+        },
+        "assignees": [],
+        "watchers": [
+            {
+                "id": 37643430,
+                "username": "Jauhar Fatawi",
+                "color": "#ffa727",
+                "initials": "JF",
+                "email": "jauhar@majoo.id",
+                "profilePicture": null
+            }
+        ],
+        "checklists": [],
+        "tags": [],
+        "parent": null,
+        "priority": null,
+        "due_date": null,
+        "start_date": null,
+        "points": null,
+        "time_estimate": null,
+        "custom_fields": [
+            {
+                "id": "ca937d38-3e00-4a83-85bd-dd9319bc83c8",
+                "name": "FEATURE",
+                "type": "drop_down",
+                "type_config": {
+                    "new_drop_down": true,
+                    "options": [
+                        {
+                            "id": "93b16954-a784-4afe-b581-92c0d1bb5625",
+                            "name": "PROMO",
+                            "color": "#EA80FC",
+                            "orderindex": 0
+                        },
+                        {
+                            "id": "5ff9536b-a959-4710-98c1-60f1a416dfd2",
+                            "name": "TUTUP KASIR",
+                            "color": "#3397dd",
+                            "orderindex": 1
+                        },
+                        {
+                            "id": "6c4d6c34-2353-45ee-809d-583f56471e58",
+                            "name": "WEBSTRUK",
+                            "color": "#f9d900",
+                            "orderindex": 2
+                        },
+                        {
+                            "id": "85c5316e-6494-486b-847f-3e38dbdf91dc",
+                            "name": "PRINTER",
+                            "color": "#bf55ec",
+                            "orderindex": 3
+                        },
+                        {
+                            "id": "da65084c-ad6c-4f53-be16-0225e9df56bb",
+                            "name": "LAPORAN",
+                            "color": "#3082B7",
+                            "orderindex": 4
+                        },
+                        {
+                            "id": "45e1d33b-a575-4a4b-bad1-1377dbb19dac",
+                            "name": "PRODUK",
+                            "color": "#AF7E2E",
+                            "orderindex": 5
+                        },
+                        {
+                            "id": "746d56b7-7433-4a67-9431-5146ebe6e190",
+                            "name": "TRANSAKSI",
+                            "color": "#800000",
+                            "orderindex": 6
+                        },
+                        {
+                            "id": "cb3197a0-b1ab-4e41-8012-9643f0ef29d3",
+                            "name": "JENIS ORDER",
+                            "color": "#1bbc9c",
+                            "orderindex": 7
+                        },
+                        {
+                            "id": "fd219395-0f2a-4e63-90a8-f637b46b6495",
+                            "name": "KITCHEN DISPLAY",
+                            "color": "#2ecd6f",
+                            "orderindex": 8
+                        },
+                        {
+                            "id": "90813f0b-d20c-4724-91aa-b35fa367c896",
+                            "name": "METODE BAYAR",
+                            "color": "#ff7800",
+                            "orderindex": 9
+                        },
+                        {
+                            "id": "192f2532-1558-4c25-87dc-2bd125507703",
+                            "name": "KEUANGAN",
+                            "color": "#b5bcc2",
+                            "orderindex": 10
+                        },
+                        {
+                            "id": "632b7739-0738-4be4-9b8c-b8923727e71e",
+                            "name": "INVENTORY",
+                            "color": "#81B1FF",
+                            "orderindex": 11
+                        },
+                        {
+                            "id": "e83f161a-6270-4b18-8a66-c76c2e4bdedd",
+                            "name": "OJOL",
+                            "color": "#3082B7",
+                            "orderindex": 12
+                        },
+                        {
+                            "id": "df699afa-621e-47b5-a4b0-feed65445de9",
+                            "name": "RECEIPT",
+                            "color": "#02BCD4",
+                            "orderindex": 13
+                        },
+                        {
+                            "id": "950269f0-e4b6-4ede-8afe-92fb559ad030",
+                            "name": "ABSENSI",
+                            "color": "#0231E8",
+                            "orderindex": 14
+                        },
+                        {
+                            "id": "1e736bde-e416-46f8-9961-a1af75aeaddf",
+                            "name": "NOTIFIKASI",
+                            "color": "#f9d900",
+                            "orderindex": 15
+                        },
+                        {
+                            "id": "68ed7780-ad41-4519-a54d-d1ce2f91b797",
+                            "name": "SUPPORT DAN LANGGANAN",
+                            "color": "#AF7E2E",
+                            "orderindex": 16
+                        },
+                        {
+                            "id": "17bfc9f5-f16e-4e9d-8ef2-304b6bd49ce8",
+                            "name": "WALLET",
+                            "color": "#2ecd6f",
+                            "orderindex": 17
+                        },
+                        {
+                            "id": "f77b411d-d2bd-458d-b5fd-6fa4428bc15b",
+                            "name": "DEPOSIT",
+                            "color": "#ff7800",
+                            "orderindex": 18
+                        },
+                        {
+                            "id": "f8fecfa9-14d2-446f-bddd-1e15c2600a1b",
+                            "name": "AUTHENTICATION",
+                            "color": "#AF7E2E",
+                            "orderindex": 19
+                        },
+                        {
+                            "id": "b409401e-b163-42b2-8b85-bcd20024797f",
+                            "name": "EMAIL",
+                            "color": "#C810D7",
+                            "orderindex": 20
+                        },
+                        {
+                            "id": "29555244-badd-47b5-a93d-9f8fe18cc868",
+                            "name": "LAYOUT",
+                            "color": "#b5bcc2",
+                            "orderindex": 21
+                        },
+                        {
+                            "id": "6969f48f-baf7-4a5e-b417-4c77fe6eef17",
+                            "name": "FORCED CLOSE",
+                            "color": "#e50000",
+                            "orderindex": 22
+                        },
+                        {
+                            "id": "dacea9e6-5aad-42c3-a9c8-cc07146682a5",
+                            "name": "PELANGGAN",
+                            "color": "#d85151",
+                            "orderindex": 23
+                        },
+                        {
+                            "id": "47ce9275-214e-489e-9f75-3ff639fd88d9",
+                            "name": "SINGKRONISASI",
+                            "color": "#4B3925",
+                            "orderindex": 24
+                        },
+                        {
+                            "id": "4759b6cb-3787-4ff7-af71-bcc13e71ecf1",
+                            "name": "OPERASI TABLE",
+                            "color": "#FF7FAB",
+                            "orderindex": 25
+                        },
+                        {
+                            "id": "6c3ee1a8-cb53-4641-beb6-7b1304e3a6af",
+                            "name": "DAFTAR ORDER",
+                            "color": null,
+                            "orderindex": 26
+                        },
+                        {
+                            "id": "b2b1ea65-2bf3-42fb-95cf-e6c4f1613537",
+                            "name": "PISAH BAYAR",
+                            "color": "#1B2B4B",
+                            "orderindex": 27
+                        },
+                        {
+                            "id": "3fc0866f-f0fa-41f2-815d-fbcc7ecb13ef",
+                            "name": "NON-TUNAI",
+                            "color": "#81B1FF",
+                            "orderindex": 28
+                        },
+                        {
+                            "id": "3ad5a1bd-e029-4a7c-8bf6-d6c8ef261127",
+                            "name": "INVOICE",
+                            "color": "#16f2f3",
+                            "orderindex": 29
+                        },
+                        {
+                            "id": "9a690809-dd44-4195-8346-fa723aebd604",
+                            "name": "CASHDRAWER",
+                            "color": "#597700",
+                            "orderindex": 30
+                        },
+                        {
+                            "id": "777c13f6-84d6-4d34-aaeb-8c61070850ea",
+                            "name": "LOGIN PIN",
+                            "color": "#EA80FC",
+                            "orderindex": 31
+                        },
+                        {
+                            "id": "a54ecb30-19ce-46ff-a75b-facf0ba8df08",
+                            "name": "GRABFOOD",
+                            "color": "#2AAD2D",
+                            "orderindex": 32
+                        },
+                        {
+                            "id": "398cd9c2-01e6-423e-948c-eb4a8b83f800",
+                            "name": "VOID",
+                            "color": "#6DA51F",
+                            "orderindex": 33
+                        },
+                        {
+                            "id": "231f444f-1e5c-44f1-9625-24a3c5bf1329",
+                            "name": "OWNER APPS",
+                            "color": "#46E076",
+                            "orderindex": 34
+                        },
+                        {
+                            "id": "89cfb26d-11b4-4658-9f11-da7deb879317",
+                            "name": "ORDER DISPLAY",
+                            "color": "#e7d59f",
+                            "orderindex": 35
+                        },
+                        {
+                            "id": "33c47e30-2572-4d1a-934e-09bc2a70eac8",
+                            "name": "E-MENU",
+                            "color": "#8085c6",
+                            "orderindex": 36
+                        },
+                        {
+                            "id": "b17201dd-2641-42da-b624-4fb5941e0c83",
+                            "name": "PAJAK",
+                            "color": "#6E341C",
+                            "orderindex": 37
+                        },
+                        {
+                            "id": "f373b577-6ebf-46c1-9358-e586e9d8ebe3",
+                            "name": "STRUK DAN BIAYA",
+                            "color": "#A28B9D",
+                            "orderindex": 38
+                        },
+                        {
+                            "id": "d7895102-8a1c-4efc-95ce-f002518b6c2d",
+                            "name": "MARKETING",
+                            "color": "#b2cc7e",
+                            "orderindex": 39
+                        },
+                        {
+                            "id": "e0d4b644-7a47-4ff3-8168-cf78c5bec33e",
+                            "name": "WIZARD",
+                            "color": "#BDC2AD",
+                            "orderindex": 40
+                        },
+                        {
+                            "id": "45be3aa2-22e7-432f-a514-609acdde0c2e",
+                            "name": "PRIVILEGE",
+                            "color": "#0f63e7",
+                            "orderindex": 41
+                        },
+                        {
+                            "id": "64a12d69-7ab5-45f0-9b93-7c59f8bfcfd0",
+                            "name": "NEGO",
+                            "color": null,
+                            "orderindex": 42
+                        },
+                        {
+                            "id": "38047f1c-bb3e-4a42-a739-eed8c589c7c0",
+                            "name": "KARYAWAN",
+                            "color": null,
+                            "orderindex": 43
+                        },
+                        {
+                            "id": "3bfd3b77-4ba6-4e59-b8ab-02e116ba3ea6",
+                            "name": "MULTIPRICE",
+                            "color": "#2C7970",
+                            "orderindex": 44
+                        },
+                        {
+                            "id": "cd3e9c68-8308-4b9f-a5aa-7619d63f3e7e",
+                            "name": "TABLE",
+                            "color": "#795E17",
+                            "orderindex": 45
+                        },
+                        {
+                            "id": "39216b65-cbda-4d1c-9fc0-f230dd7e2a70",
+                            "name": "CICILAN",
+                            "color": "#E9F18E",
+                            "orderindex": 46
+                        },
+                        {
+                            "id": "0a6af837-1a14-44eb-a19e-89fede22bc1a",
+                            "name": "KOMISI",
+                            "color": "#6EC582",
+                            "orderindex": 47
+                        },
+                        {
+                            "id": "e57beca9-caf5-49a2-9d95-228b84bc4e19",
+                            "name": "AUTOMATE TEST",
+                            "color": "#FC37D4",
+                            "orderindex": 48
+                        },
+                        {
+                            "id": "1187210e-9f25-46f9-8637-8a3934136990",
+                            "name": "SUNMI",
+                            "color": "#52F657",
+                            "orderindex": 49
+                        },
+                        {
+                            "id": "089db1cc-4b01-4176-9f5c-7bb1285e97c1",
+                            "name": "PENGATURAN",
+                            "color": "#F25676",
+                            "orderindex": 50
+                        },
+                        {
+                            "id": "116aea03-3551-4311-ac8e-3fc3a3ee12e1",
+                            "name": "REFUND",
+                            "color": "#112BAB",
+                            "orderindex": 51
+                        },
+                        {
+                            "id": "1db828ba-1149-4f3a-bc20-590e51b4061b",
+                            "name": "E-COMMERCE",
+                            "color": "#F429F5",
+                            "orderindex": 52
+                        },
+                        {
+                            "id": "043c836f-9fc5-4441-9d7b-5e26358f0d1c",
+                            "name": "POIN",
+                            "color": "#E2624C",
+                            "orderindex": 53
+                        },
+                        {
+                            "id": "46211bb0-9e05-44a4-a58f-8e3b37a42f8d",
+                            "name": "LOGIN",
+                            "color": "#95b259",
+                            "orderindex": 54
+                        },
+                        {
+                            "id": "9307437a-7693-4cf4-8474-6bcd58433185",
+                            "name": "COMPLIMENT",
+                            "color": "#0042BB",
+                            "orderindex": 55
+                        },
+                        {
+                            "id": "90f32a38-9497-4b1f-8d37-614071650837",
+                            "name": "MULTI SATUAN",
+                            "color": "#dae083",
+                            "orderindex": 56
+                        },
+                        {
+                            "id": "4121750e-ffc2-4c26-8efa-71aec377d435",
+                            "name": "TTM",
+                            "color": "#AE04A9",
+                            "orderindex": 57
+                        },
+                        {
+                            "id": "a67a40b4-4187-4807-bc71-c0cde78273ff",
+                            "name": "DAFTAR TRANSAKSI",
+                            "color": "#C0304B",
+                            "orderindex": 58
+                        },
+                        {
+                            "id": "be13059b-d78e-469c-9380-e15d159bb151",
+                            "name": "CATEGORY",
+                            "color": "#BF4364",
+                            "orderindex": 59
+                        },
+                        {
+                            "id": "014bcd84-d98b-45f0-a344-0973e32ae668",
+                            "name": "MIGRASI DB",
+                            "color": "#68066C",
+                            "orderindex": 60
+                        },
+                        {
+                            "id": "a60f0811-d705-49b3-a2e2-e145c7398659",
+                            "name": "MULTI VARIANT",
+                            "color": "#EB6781",
+                            "orderindex": 61
+                        },
+                        {
+                            "id": "143bf5ee-1485-486f-92c8-5f3d8e907484",
+                            "name": "PEMBULATAN",
+                            "color": "#B9FDD0",
+                            "orderindex": 62
+                        },
+                        {
+                            "id": "58a50549-5206-4f06-8c74-6841afab5793",
+                            "name": "JASA",
+                            "color": "#C98285",
+                            "orderindex": 63
+                        },
+                        {
+                            "id": "c84ce67f-c45a-4037-ba90-1bd8f4c80a36",
+                            "name": "BUKA KASIR",
+                            "color": "#81B1FF",
+                            "orderindex": 64
+                        },
+                        {
+                            "id": "b79671e1-b730-45a6-a72a-73a599199d1c",
+                            "name": "CUSTOMER DISPLAY",
+                            "color": "#0d3714",
+                            "orderindex": 65
+                        },
+                        {
+                            "id": "1bcb54ba-7339-4e3e-b344-10fa6e728ede",
+                            "name": "WEB ORDER",
+                            "color": "#F59979",
+                            "orderindex": 66
+                        },
+                        {
+                            "id": "adf39c4f-b6a0-4822-a7dd-2e3267e666b1",
+                            "name": "penjualan",
+                            "color": "#A7310D",
+                            "orderindex": 67
+                        },
+                        {
+                            "id": "c697a334-5bf7-4946-8a2f-aec732393c98",
+                            "name": "jenis",
+                            "color": "#564093",
+                            "orderindex": 68
+                        },
+                        {
+                            "id": "647ff283-97fe-40b0-bebb-3b70cd856a6f",
+                            "name": "SEARCH",
+                            "color": "#683AA0",
+                            "orderindex": 69
+                        },
+                        {
+                            "id": "e7bfac53-811d-410a-9462-c8b9ebfacdf1",
+                            "name": "PROFILE",
+                            "color": "#E7B29C",
+                            "orderindex": 70
+                        },
+                        {
+                            "id": "f58723c4-742f-4602-bb3c-62213c4b631d",
+                            "name": "LENDING",
+                            "color": "#1B285C",
+                            "orderindex": 71
+                        },
+                        {
+                            "id": "f1d1dc28-a366-4949-9f73-97fb64a58e5d",
+                            "name": "BACKUP DB",
+                            "color": "#894a9b",
+                            "orderindex": 72
+                        },
+                        {
+                            "id": "f0412fc2-51e0-4fa7-8ca3-4a5b08f9ae62",
+                            "name": "DATAMART",
+                            "color": "#69BA5E",
+                            "orderindex": 73
+                        },
+                        {
+                            "id": "4f6a105d-7ce5-4de7-8b5b-9469ce5a50e6",
+                            "name": "BARCODE",
+                            "color": "#f9d900",
+                            "orderindex": 74
+                        },
+                        {
+                            "id": "0d9306fe-e4e7-4b75-950c-03f166a218b2",
+                            "name": "kupon",
+                            "color": "#55342C",
+                            "orderindex": 75
+                        },
+                        {
+                            "id": "0cb57476-a929-45d8-b1f7-91f3b3be4bf3",
+                            "name": "kup",
+                            "color": "#7D1861",
+                            "orderindex": 76
+                        },
+                        {
+                            "id": "b30ffd89-2ac5-4bfd-b296-bf3b214806c6",
+                            "name": "KAS KASIR",
+                            "color": "#3A2455",
+                            "orderindex": 77
+                        },
+                        {
+                            "id": "76c77010-7030-4329-8618-617370f26b4c",
+                            "name": "COCKPIT",
+                            "color": "#879506",
+                            "orderindex": 78
+                        },
+                        {
+                            "id": "567d7a21-650f-4f61-8b41-810da3844d81",
+                            "name": "Varian",
+                            "color": "#E65100",
+                            "orderindex": 79
+                        },
+                        {
+                            "id": "e85ca6c1-fde7-4efa-a6f0-286203275650",
+                            "name": "custom amount",
+                            "color": "#62744B",
+                            "orderindex": 80
+                        },
+                        {
+                            "id": "4ba1dc5e-1972-41f6-820a-c398f0dca95e",
+                            "name": "menu belanja",
+                            "color": "#BA653E",
+                            "orderindex": 81
+                        },
+                        {
+                            "id": "e02d6851-9451-4e88-aeee-709320e192b5",
+                            "name": "pos",
+                            "color": "#A1EE9A",
+                            "orderindex": 82
+                        }
+                    ]
+                },
+                "date_created": "1602487061477",
+                "hide_from_guests": false,
+                "required": false
+            },
+            {
+                "id": "f8b7da65-b8e7-432a-9594-2fdefab06cb4",
+                "name": "PLATFORM",
+                "type": "drop_down",
+                "type_config": {
+                    "default": 0,
+                    "placeholder": null,
+                    "new_drop_down": true,
+                    "options": [
+                        {
+                            "id": "ad692921-ef70-4f82-af81-15593eb3f771",
+                            "name": "API",
+                            "color": "#800000",
+                            "orderindex": 0
+                        },
+                        {
+                            "id": "0764592d-b079-4b5e-9846-cfbf70ba690d",
+                            "name": "WEBAPP",
+                            "color": "#f9d900",
+                            "orderindex": 1
+                        },
+                        {
+                            "id": "bd2a775d-14d4-4821-9dcb-9ee9fb297ec8",
+                            "name": "DASHBOARD",
+                            "color": "#1bbc9c",
+                            "orderindex": 2
+                        },
+                        {
+                            "id": "362f1236-0ad1-4eb6-a6c2-603e71543747",
+                            "name": "INFRA",
+                            "color": "#667684",
+                            "orderindex": 3
+                        },
+                        {
+                            "id": "8d1b0960-e8dd-4ef7-a93f-cbaf4420aa0c",
+                            "name": "COCKPIT",
+                            "color": "#000000",
+                            "orderindex": 4
+                        },
+                        {
+                            "id": "e63e8830-c151-4410-9858-884f87dd6e7b",
+                            "name": "TABLET",
+                            "color": "#04A9F4",
+                            "orderindex": 5
+                        },
+                        {
+                            "id": "7264f73f-fc45-4717-8b8d-ba8e61aac122",
+                            "name": "SMARTPHONE",
+                            "color": "#3397dd",
+                            "orderindex": 6
+                        },
+                        {
+                            "id": "2f48af72-2b6e-4d41-a85c-def08b414c45",
+                            "name": "DESIGN",
+                            "color": "#FF7FAB",
+                            "orderindex": 7
+                        },
+                        {
+                            "id": "7f353437-295b-4f4e-a28c-8067f1cd4508",
+                            "name": "STORY",
+                            "color": "#E65100",
+                            "orderindex": 8
+                        },
+                        {
+                            "id": "ca3abaa5-ece4-4e8b-ae2a-cf741271156a",
+                            "name": "TECHDOC",
+                            "color": "#2ecd6f",
+                            "orderindex": 9
+                        },
+                        {
+                            "id": "196d044a-1570-40fd-b785-4590bbe88fff",
+                            "name": "TABLET FLUTTER",
+                            "color": "#1bbc9c",
+                            "orderindex": 10
+                        },
+                        {
+                            "id": "d6e453f8-f503-4d8f-8bf7-cc43a2305fba",
+                            "name": "DATA REQUEST",
+                            "color": "#f9d900",
+                            "orderindex": 11
+                        }
+                    ]
+                },
+                "date_created": "1599903531647",
+                "hide_from_guests": false,
+                "required": false
+            },
+            {
+                "id": "be84f6c8-8991-4ced-8a9e-235bfa4e28f0",
+                "name": "PRIORITY",
+                "type": "drop_down",
+                "type_config": {
+                    "default": 0,
+                    "placeholder": null,
+                    "new_drop_down": true,
+                    "options": [
+                        {
+                            "id": "e61a091f-3d96-41e3-8a2a-a657e4741bff",
+                            "name": "P1 CRITICAL",
+                            "color": "#e50000",
+                            "orderindex": 0
+                        },
+                        {
+                            "id": "f26282d4-b4d3-423d-9816-787a2de2898c",
+                            "name": "P2 URGENT",
+                            "color": "#E65100",
+                            "orderindex": 1
+                        },
+                        {
+                            "id": "1a099e97-c8bd-418a-9663-e1793e52c3e7",
+                            "name": "P3 HIGH",
+                            "color": "#ff7800",
+                            "orderindex": 2
+                        },
+                        {
+                            "id": "1ddc4c09-d2ef-4c33-8ab7-3494249665b4",
+                            "name": "P4 MEDIUM",
+                            "color": "#f9d900",
+                            "orderindex": 3
+                        },
+                        {
+                            "id": "882507c4-72e0-4814-be10-9065d1ca5f32",
+                            "name": "P5 LOW",
+                            "color": "#3397dd",
+                            "orderindex": 4
+                        }
+                    ]
+                },
+                "date_created": "1585759903901",
+                "hide_from_guests": false,
+                "value": 2,
+                "required": false
+            },
+            {
+                "id": "e1561989-a297-418e-8879-275ec1e002a2",
+                "name": "SQUAD",
+                "type": "drop_down",
+                "type_config": {
+                    "new_drop_down": true,
+                    "options": [
+                        {
+                            "id": "61bb82e6-d8e0-4b1b-bbde-fd66e8ad71e0",
+                            "name": "Squad Alpha",
+                            "color": "#04A9F4",
+                            "orderindex": 0
+                        },
+                        {
+                            "id": "a5322847-7319-4f62-8acb-a3f3b5f2870b",
+                            "name": "Squad Beta",
+                            "color": "#7C4DFF",
+                            "orderindex": 1
+                        },
+                        {
+                            "id": "689d8224-8755-4a22-9dd8-fa38faa4d5fe",
+                            "name": "Squad Charlie",
+                            "color": "#FF7FAB",
+                            "orderindex": 2
+                        },
+                        {
+                            "id": "d00c7efd-a223-41ae-ae1f-5abe3611097a",
+                            "name": "Squad Delta",
+                            "color": "#2ecd6f",
+                            "orderindex": 3
+                        },
+                        {
+                            "id": "01c98677-632f-4522-97a7-5ac63296b174",
+                            "name": "Squad Echo",
+                            "color": "#800000",
+                            "orderindex": 4
+                        },
+                        {
+                            "id": "402f6b3c-6f4c-45da-abd9-ace84ec051de",
+                            "name": "Squad Zeppelin",
+                            "color": "#e50000",
+                            "orderindex": 5
+                        },
+                        {
+                            "id": "d65ba93a-9524-413e-84ff-65c1e833d2b7",
+                            "name": "Squad Havana",
+                            "color": "#FF4081",
+                            "orderindex": 6
+                        },
+                        {
+                            "id": "0d5711a7-5848-4208-b763-b64010ad550a",
+                            "name": "Squad King",
+                            "color": "#FF7FAB",
+                            "orderindex": 7
+                        },
+                        {
+                            "id": "e61afb90-6b68-4970-aa64-4e3e4dbfd063",
+                            "name": "Squad Madagascar",
+                            "color": "#81B1FF",
+                            "orderindex": 8
+                        },
+                        {
+                            "id": "7f01c31d-e3b7-48aa-a110-a706d39f26ae",
+                            "name": "Squad Juliet",
+                            "color": "#3082B7",
+                            "orderindex": 9
+                        },
+                        {
+                            "id": "113ca70b-4460-4b50-af9c-e4ed6bcb3b58",
+                            "name": "Squad Romeo",
+                            "color": "#f9d900",
+                            "orderindex": 10
+                        },
+                        {
+                            "id": "71472ac1-af86-4d6c-9851-359c7b9b51e0",
+                            "name": "Squad Oscar",
+                            "color": "#AF7E2E",
+                            "orderindex": 11
+                        },
+                        {
+                            "id": "94d11ca5-884e-4312-a068-541c71ff7e29",
+                            "name": "Squad Sierra",
+                            "color": "#ff7800",
+                            "orderindex": 12
+                        },
+                        {
+                            "id": "5a436a8e-b7a5-4c51-84a0-88f81a263967",
+                            "name": "Squad Tango",
+                            "color": "#EA80FC",
+                            "orderindex": 13
+                        },
+                        {
+                            "id": "0ac5aa2f-6f55-47b5-9101-f0553a97a483",
+                            "name": "Bunaken",
+                            "color": "#81B1FF",
+                            "orderindex": 14
+                        },
+                        {
+                            "id": "bae1e735-6a56-4157-9e6b-5e6bdc0257ce",
+                            "name": "Squad XRay",
+                            "color": "#1bbc9c",
+                            "orderindex": 15
+                        },
+                        {
+                            "id": "2acf891b-633d-4a0f-9baf-b05e50cdefba",
+                            "name": "-",
+                            "color": "#1621FA",
+                            "orderindex": 16
+                        }
+                    ]
+                },
+                "date_created": "1633675178097",
+                "hide_from_guests": false,
+                "value": 1,
+                "required": true
+            }
+        ],
+        "dependencies": [],
+        "linked_tasks": [],
+        "team_id": "3668248",
+        "url": "https: //app.clickup.com/t/25dpj9j",
+        "list": {
+            "id": "169578249",
+            "name": "List",
+            "access": true
+        },
+        "project": {
+            "id": "97532672",
+            "name": "Folder test automation",
+            "hidden": false,
+            "access": true
+        },
+        "folder": {
+            "id": "97532672",
+            "name": "Folder test automation",
+            "hidden": false,
+            "access": true
+        },
+        "space": {
+            "id": "43624125"
+        }
+    }
+}
