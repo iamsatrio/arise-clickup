@@ -16,7 +16,9 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 async function checkIn(payload, type) {
     try {
         let task = payload;
-        let check_in_time = moment.unix(task.date_created) ? moment.unix(task.date_created) : false;
+        console.log(task.creator)
+        console.log(task.date_created)
+        let check_in_time = task.date_created ? task.date_created : false;
         let applicant = task.creator.id ? task.creator.id : false;
         
         // Set check in time
