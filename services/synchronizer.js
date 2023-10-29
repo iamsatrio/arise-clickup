@@ -57,7 +57,6 @@ async function checkOut(payload, type) {
         let task = payload;
         let check_in_time = task.date_created ? task.date_created : false;
         let check_out_time = task.date_closed ? task.date_closed : false;
-        let working_hours = parseInt(moment.duration(check_out_time.diff(check_in_time)).asDays());
 
         await axios({
             method: "POST",
