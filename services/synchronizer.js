@@ -66,7 +66,7 @@ async function checkIn(payload, type) {
 async function checkOut(payload, type) {
     try {
         let task = payload;
-        let check_in_time = task.date_created ? task.date_created : false;
+        // let check_in_time = task.date_created ? task.date_created : false;
         let check_out_time = task.date_closed ? task.date_closed : false;
 
         await axios({
@@ -88,9 +88,46 @@ async function checkOut(payload, type) {
     }
 }
 
+async function leaveRequest(payload, type) {
+    try {
+        let task = payload;
+        let applicant = task.creator.id ? task.creator.id : false;
+        
+        // Set assignee
+        await axios({
+            method: "PUT",
+            url: `https://api.clickup.com/api/v2/task/${task.id}`,
+            data: {
+                "assignees": {
+                    "add": [applicant]
+                }
+            }
+        });
+
+        // Set applicant
+        console.log(applicant);
+        await axios({
+            method: "POST",
+            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${applicant_cf_id}`,
+            data: {
+                "value": {
+                    "add": [applicant]
+                }
+            }
+        });
+
+        return 'OK'
+    } catch (error) {
+        console.log("====== Start Err ClickUp =====")
+        console.log(error)
+        console.log("====== End Err ClickUp =====")
+    }
+}
+
 
 
 module.exports = {
     checkIn,
-    checkOut
+    checkOut,
+    leaveRequest
 }
