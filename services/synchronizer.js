@@ -134,7 +134,7 @@ async function leaveRequest(payload, type) {
         let applicant = task.creator.id ? task.creator.id : false;
         let due_date = moment.unix(task.due_date) || false;
         let start_date = moment.unix(task.start_date) || false;
-        let days_off = Math.round(calcbusinessdays(start_date,due_date));
+        let days_off = Math.round(calcbusinessdays(start_date,due_date)/1000);
         // Set assignee
         await axios({
             method: "PUT",
