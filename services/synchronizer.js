@@ -10,6 +10,45 @@ const applicant_cf_id = "f4de2801-4b94-4c68-9370-64062e2532fb"
 const check_in_time_cf_id = "c24a19ff-26c2-4378-a509-a571be202c72"
 const check_out_time_cf_id = "65fc19f5-6e46-4bf1-98b5-4b642b4bb3cb"
 const days_off_cf_id = "9406aada-d74f-406d-b0b5-4e72bb66c94a"
+const calcbusinessdays = (d1, d2) => {
+    // calc all days used including last day ( the +1 )
+    const days = d2.diff(d1, 'days') + 1;
+
+    console.log('days:', days);
+
+    // how many full weekends occured in this time span
+    const weekends = math.floor( days / 7 );
+
+    console.log('full weekends:', weekends);
+
+    // subtract all the weekend days
+    let businessdays = days - ( weekends * 2);
+
+    // special case for weeks less than 7
+    if( weekends === 0 ){
+    const cur = d1.clone();
+    for( let i =0; i < days; i++ ){
+        if( cur.day() === 0 || cur.day() === 6 ){
+        businessdays--;
+        }
+        cur.add(1, 'days')
+    }
+    } else {
+    // if the last day is a saturday we need to account for it
+    if (d2.day() === 6 ) {
+        console.log('extra weekend day (saturday)');
+        businessdays--;
+    }
+    // if the first day is a sunday we need to account for it
+    if (d1.day() === 0) {
+        console.log('extra weekend day (sunday)');
+        businessdays--;
+    }
+    }
+
+    console.log('business days:', businessdays);
+    return businessdays;
+}
 
 
 axios.defaults.headers.common['Authorization'] = config.clickupToken;
@@ -96,7 +135,7 @@ async function leaveRequest(payload, type) {
         let due_date = moment.unix(task.due_date) || false;
         let start_date = moment.unix(task.start_date) || false;
         let duration = parseInt(moment.duration(due_date.diff(start_date)).asDays());
-
+        let days_off = calcbusinessdays(start_date,due_date);
         // Set assignee
         await axios({
             method: "PUT",
@@ -122,11 +161,12 @@ async function leaveRequest(payload, type) {
 
         // Set days off
         console.log(duration)
+        console.log(days_off)
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${days_off_cf_id}`,
             data: {
-                "value": (duration/1000)+1
+                "value": days_off+1
             }
         });
 
