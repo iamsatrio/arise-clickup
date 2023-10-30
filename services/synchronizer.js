@@ -126,7 +126,7 @@ async function leaveRequest(payload, type) {
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${days_off_cf_id}`,
             data: {
-                "value": duration
+                "value": duration+1
             }
         });
 
@@ -157,7 +157,7 @@ async function addComment(payload, type) {
                 url: `https://api.clickup.com/api/v2/task/${task.id}/comment`,
                 data: {
                     "comment_text": `${applicant[0].name} your leave request is Approved`,
-                    "assignee": applicant[0].value,
+                    "assignee": applicant[0].value[0].id,
                     "notify_all": true
                 }
             });
@@ -168,7 +168,7 @@ async function addComment(payload, type) {
                 url: `https://api.clickup.com/api/v2/task/${task.id}/comment`,
                 data: {
                     "comment_text": `${applicant[0].name} your leave request is Rejected`,
-                    "assignee": applicant[0].value,
+                    "assignee": applicant[0].value[0].id,
                     "notify_all": true
                 }
             });
