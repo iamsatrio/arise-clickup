@@ -17,7 +17,7 @@ const calcbusinessdays = (d1, d2) => {
     console.log('days:', days);
 
     // how many full weekends occured in this time span
-    const weekends = math.floor( days / 7 );
+    const weekends = Math.floor( days / 7 );
 
     console.log('full weekends:', weekends);
 
