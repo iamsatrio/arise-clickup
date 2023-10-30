@@ -126,7 +126,7 @@ async function leaveRequest(payload, type) {
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${days_off_cf_id}`,
             data: {
-                "value": duration+1
+                "value": duration
             }
         });
 
