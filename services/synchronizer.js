@@ -134,8 +134,7 @@ async function leaveRequest(payload, type) {
         let applicant = task.creator.id ? task.creator.id : false;
         let due_date = moment.unix(task.due_date) || false;
         let start_date = moment.unix(task.start_date) || false;
-        let duration = parseInt(moment.duration(due_date.diff(start_date)).asDays());
-        let days_off = calcbusinessdays(start_date,due_date);
+        let days_off = parseInt(calcbusinessdays(start_date,due_date));
         // Set assignee
         await axios({
             method: "PUT",
@@ -160,13 +159,12 @@ async function leaveRequest(payload, type) {
         // });
 
         // Set days off
-        console.log(duration)
         console.log(days_off)
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${days_off_cf_id}`,
             data: {
-                "value": (days_off/1000)+1
+                "value": days_off
             }
         });
 
