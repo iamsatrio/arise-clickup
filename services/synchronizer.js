@@ -121,6 +121,7 @@ async function leaveRequest(payload, type) {
         // });
 
         // Set days off
+        console.log(duration)
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${days_off_cf_id}`,
@@ -155,7 +156,7 @@ async function addComment(payload, type) {
                 method: "POST",
                 url: `https://api.clickup.com/api/v2/task/${task.id}/comment`,
                 data: {
-                    "comment_text": `${applicant[0].value[0].name}, your leave request is Approved`,
+                    "comment_text": `${applicant[0].value[0].username}, your leave request is Approved`,
                     "assignee": applicant[0].value[0].id,
                     "notify_all": true
                 }
@@ -166,7 +167,7 @@ async function addComment(payload, type) {
                 method: "POST",
                 url: `https://api.clickup.com/api/v2/task/${task.id}/comment`,
                 data: {
-                    "comment_text": `${applicant[0].value[0].name}, your leave request is Rejected`,
+                    "comment_text": `${applicant[0].value[0].username}, your leave request is Rejected`,
                     "assignee": applicant[0].value[0].id,
                     "notify_all": true
                 }
