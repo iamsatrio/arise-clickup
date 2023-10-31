@@ -9,7 +9,7 @@ const leave_list_id = "901600057177"
 const applicant_cf_id = "f4de2801-4b94-4c68-9370-64062e2532fb"
 const check_in_time_cf_id = "c24a19ff-26c2-4378-a509-a571be202c72"
 const check_out_time_cf_id = "65fc19f5-6e46-4bf1-98b5-4b642b4bb3cb"
-const days_off_cf_id = "9406aada-d74f-406d-b0b5-4e72bb66c94a"
+const requested_days_off_cf_id = "9406aada-d74f-406d-b0b5-4e72bb66c94a"
 const approved_days_off_cf_id = "7d16a59e-7b55-4ab0-b74e-b419d502cc7f"
 const pto_left_cf_id = "88a13479-c474-438f-903b-9de183dab5b7"
 
@@ -127,16 +127,41 @@ async function leaveRequest(payload, type) {
         //     }
         // });
 
-        // Set days off
+        // Set Requested Days Off
         console.log(duration)
         await axios({
             method: "POST",
-            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${days_off_cf_id}`,
+            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${requested_days_off_cf_id}`,
             data: {
                 "value": (duration/1000)+1
             }
         });
 
+        //Set PTO Left
+        let approved_leave = await axios({
+            method: "GET",
+            url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
+        });
+        let pointer = 0
+        let pto_left = 12
+        while(approved_leave[pointer]){
+            console.log(approved_leave[pointer])
+            console.log(pto_left)
+            let approved_days_off = await asyncFilter(approved_leave[pointer].custom_fields, async (i) => {
+                return i.id == approved_days_off_cf_id;
+            });
+
+            pto_left = pto_left - parseInt(approved_days_off[0].value)
+
+            pointer = pointer + 1
+        }
+        await axios({
+            method: "POST",
+            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${pto_left_cf_id}`,
+            data: {
+                "value": pto_left
+            }
+        });
         return 'OK'
     } catch (error) {
         console.log("====== Start Err ClickUp =====")
@@ -150,6 +175,10 @@ async function leaveApproval(payload, type) {
         let task = payload;
 
         let status = task.status ? task.status : false
+        let requested_day_off = await asyncFilter(task.custom_fields, async (i) => {
+            return i.id == requested_days_off_cf_id;
+        });
+
         let applicant = await asyncFilter(task.custom_fields, async (i) => {
             return i.id == applicant_cf_id;
         });
@@ -158,9 +187,11 @@ async function leaveApproval(payload, type) {
 
         console.log(status)
         console.log(applicant[0].value)
+        console.log(requested_day_off[0].value)
 
         if(status.status == 'approved'){
-            //Approved Condition
+        //Approved Condition
+            //Add Comment
             console.log('approved')
             await axios({
                 method: "POST",
@@ -169,6 +200,14 @@ async function leaveApproval(payload, type) {
                     "comment_text": `${applicant[0].value[0].username}, your leave request is Approved`,
                     "assignee": applicant[0].value[0].id,
                     "notify_all": true
+                }
+            });
+            //Set Approved Day Off
+            await axios({
+                method: "POST",
+                url: `https://api.clickup.com/api/v2/task/${task.id}/field/${approved_days_off_cf_id}`,
+                data: {
+                    "value": requested_day_off[0].value
                 }
             });
         }else if(status.status == 'rejected'){
