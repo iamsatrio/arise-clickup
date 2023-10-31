@@ -108,7 +108,7 @@ async function leaveRequest(payload, type) {
             method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
             data: {
-                "name":`Leave Request - ${applicant[0].value[0].username} - (${moment(start_date).format('D MMM YYY')} / ${moment(due_date).format('D MMM YYY')} `,
+                "name":`Leave Request - ${applicant[0].value[0].username} - (${moment(task.start_date).format('D MMM YYY')} / ${moment(task.due_date).format('D MMM YYY')} `,
                 "assignees": {
                     "add": [8710559]
                 }
@@ -140,7 +140,7 @@ async function leaveRequest(payload, type) {
         //Set PTO Left
         let approved_leave = await axios({
             method: "GET",
-            url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
+            url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
         });
         let pointer = 0
         let pto_left = 12
