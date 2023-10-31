@@ -101,14 +101,13 @@ async function leaveRequest(payload, type) {
             return i.id == applicant_cf_id;
         });
         console.log(applicant[0].value[0].username)
-        // console.log(moment(task.start_date/1000).format("DD MMM YYYY"))
-        // console.log(moment(task.due_date/1000).format("DD MMM YYYY"))
+        
         // Set assignee
         await axios({
             method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
             data: {
-                "name":`Leave Request - ${applicant[0].value[0].username} - (${start_date.format("dddd, Do MMM YYYY")} / ${due_date.format("dddd, Do MMM YYYY")} `,
+                "name":`Leave Request - ${applicant[0].value[0].username}`,
                 "assignees": {
                     "add": [8710559]
                 }
@@ -143,7 +142,7 @@ async function leaveRequest(payload, type) {
             url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
         });
         console.log(`https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}","operator":"=","value":"${applicant[0].value[0].id}"}]`)
-        console.log(approved_leave)
+        // console.log(approved_leave)
 
 
 
