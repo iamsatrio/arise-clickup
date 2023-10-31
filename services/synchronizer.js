@@ -52,6 +52,7 @@ async function checkIn(payload, type) {
             method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
             data: {
+                "name":`Check In - ${task.creator.username}`,
                 "assignees": {
                     "add": [applicant]
                 }
@@ -107,7 +108,7 @@ async function leaveRequest(payload, type) {
         });
         console.log(applicant[0].value[0].username)
         
-        // Set assignee
+        // Set assignee & change task title
         await axios({
             method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
