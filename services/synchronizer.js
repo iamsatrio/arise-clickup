@@ -70,6 +70,11 @@ async function checkOut(payload, type) {
     try {
         let task = payload;
         let check_out_time = task.date_closed ? task.date_closed : false;
+        let duration = moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created)));
+        let duration_hours = moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asHours();
+
+        console.log(duration)
+        console.log(duration_hours)
 
         await axios({
             method: "POST",
