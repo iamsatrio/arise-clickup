@@ -142,7 +142,7 @@ async function leaveRequest(payload, type) {
             method: "GET",
             url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
         });
-        console.log(approved_leave[0])
+        console.log(approved_leave)
 
 
 
