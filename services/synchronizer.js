@@ -71,12 +71,12 @@ async function checkOut(payload, type) {
     try {
         let task = payload;
         let check_out_time = task.date_closed ? task.date_closed : false;
-        let duration = moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created)));
-        let duration_hours = moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asHours();
+        let duration = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))));
+        let duration_hours = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asHours());
 
-        console.log(duration)
-        console.log(duration_hours)
-
+        
+        console.log(`duration hours : ${duration_hours}`)
+        console.log(`duration biasa : ${duration}`)
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${check_out_time_cf_id}`,
