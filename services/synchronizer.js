@@ -140,7 +140,7 @@ async function leaveRequest(payload, type) {
         //Set PTO Left
         let approved_leave = await axios({
             method: "GET",
-            url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
+            url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
         });
         let pointer = 0
         let pto_left = 12
