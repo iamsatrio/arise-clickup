@@ -5,10 +5,13 @@ const config = require('../config');
 const asyncFilter = require('../utils/filterAsync');
 const mongo = require('./mongo');
 
-const leave_list_id = "901600057177"
-const applicant_cf_id = "f4de2801-4b94-4c68-9370-64062e2532fb"
 const check_in_time_cf_id = "c24a19ff-26c2-4378-a509-a571be202c72"
 const check_out_time_cf_id = "65fc19f5-6e46-4bf1-98b5-4b642b4bb3cb"
+const working_hours_cf_id = "cebe6d88-8c4d-41fe-a54f-52cda444c861"
+const working_time_in_hour_cf_id = "b2dab324-b0d0-4713-abb6-3d8fb3cf2378"
+const working_time_in_minute_cf_id = "584eae23-af1d-4093-abb7-1880d06072b0"
+const applicant_cf_id = "f4de2801-4b94-4c68-9370-64062e2532fb"
+const leave_list_id = "901600057177"
 const requested_days_off_cf_id = "9406aada-d74f-406d-b0b5-4e72bb66c94a"
 const approved_days_off_cf_id = "7d16a59e-7b55-4ab0-b74e-b419d502cc7f"
 const pto_left_cf_id = "88a13479-c474-438f-903b-9de183dab5b7"
@@ -94,15 +97,15 @@ async function checkOut(payload, type) {
         let task = payload;
         let check_out_time = task.date_closed ? task.date_closed : false;
         let duration_seconds = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asSeconds());
-        let duration_hours = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asHours());
-        let duration_days = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asDays());
+        let working_hours = convertMillisecondsToHumanReadableTime(duration_seconds);
+        let working_time_in_hour = parseInt(duration_seconds/3600000);
+        let working_time_in_minute = parseInt(duration_seconds/60000);
 
-        console.log(`duration hours : ${duration_hours}`)
-        console.log(`duration miliseconds : ${duration_seconds}`)
-        console.log(`duration hari : ${duration_days}`)
-        console.log(`duration menit : ${duration_seconds/60000}`)
-        console.log(`duration jam : ${duration_seconds/3600000}`)
-        console.log(`coba convert${convertMillisecondsToHumanReadableTime(duration_seconds)}`)
+        console.log(`duration seconds : ${duration_seconds}`)
+        console.log(`duration jam : ${working_time_in_hour}`)
+        console.log(`duration menit : ${working_time_in_minute}`)
+        console.log(`konversi : ${working_hours}`)
+
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${check_out_time_cf_id}`,
@@ -111,6 +114,30 @@ async function checkOut(payload, type) {
                 "value_options": {
                     "time": true
                     }
+            }
+        });
+
+        await axios({
+            method: "POST",
+            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${working_hours_cf_id}`,
+            data: {
+                "value": working_hours
+            }
+        });
+
+        await axios({
+            method: "POST",
+            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${working_time_in_hour_cf_id}`,
+            data: {
+                "value": working_time_in_hour
+            }
+        });
+
+        await axios({
+            method: "POST",
+            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${working_time_in_minute}`,
+            data: {
+                "value": working_time_in_minute
             }
         });
 
