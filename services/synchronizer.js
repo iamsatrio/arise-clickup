@@ -135,7 +135,7 @@ async function checkOut(payload, type) {
 
         await axios({
             method: "POST",
-            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${working_time_in_minute}`,
+            url: `https://api.clickup.com/api/v2/task/${task.id}/field/${working_time_in_minute_cf_id}`,
             data: {
                 "value": working_time_in_minute
             }
