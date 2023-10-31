@@ -108,7 +108,7 @@ async function leaveRequest(payload, type) {
             method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
             data: {
-                "name":`Leave Request - ${applicant[0].value[0].username} - (${moment.unix(task.start_date).format("MM/DD/YYYY")} / ${moment.unix(task.start_date).format("MM/DD/YYYY")} `,
+                "name":`Leave Request - ${applicant[0].value[0].username} - (${start_date.format("dddd, Do MMM YYYY")} / ${due_date.format("dddd, Do MMM YYYY")} `,
                 "assignees": {
                     "add": [8710559]
                 }
