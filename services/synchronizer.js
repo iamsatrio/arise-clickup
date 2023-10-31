@@ -5,51 +5,13 @@ const config = require('../config');
 const asyncFilter = require('../utils/filterAsync');
 const mongo = require('./mongo');
 
-
+const leave_list_id = "901600057177"
 const applicant_cf_id = "f4de2801-4b94-4c68-9370-64062e2532fb"
 const check_in_time_cf_id = "c24a19ff-26c2-4378-a509-a571be202c72"
 const check_out_time_cf_id = "65fc19f5-6e46-4bf1-98b5-4b642b4bb3cb"
 const days_off_cf_id = "9406aada-d74f-406d-b0b5-4e72bb66c94a"
-const calcbusinessdays = (d1, d2) => {
-    // calc all days used including last day ( the +1 )
-    const days = d2.diff(d1, 'days') + 1;
-
-    console.log('days:', days);
-
-    // how many full weekends occured in this time span
-    const weekends = Math.floor( days / 7 );
-
-    console.log('full weekends:', weekends);
-
-    // subtract all the weekend days
-    let businessdays = days - ( weekends * 2);
-
-    // special case for weeks less than 7
-    if( weekends === 0 ){
-    const cur = d1.clone();
-    for( let i =0; i < days; i++ ){
-        if( cur.day() === 0 || cur.day() === 6 ){
-        businessdays--;
-        }
-        cur.add(1, 'days')
-    }
-    } else {
-    // if the last day is a saturday we need to account for it
-    if (d2.day() === 6 ) {
-        console.log('extra weekend day (saturday)');
-        businessdays--;
-    }
-    // if the first day is a sunday we need to account for it
-    if (d1.day() === 0) {
-        console.log('extra weekend day (sunday)');
-        businessdays--;
-    }
-    }
-
-    console.log('business days:', businessdays);
-    return businessdays;
-}
-
+const approved_days_off_cf_id = "7d16a59e-7b55-4ab0-b74e-b419d502cc7f"
+const pto_left_cf_id = "88a13479-c474-438f-903b-9de183dab5b7"
 
 axios.defaults.headers.common['Authorization'] = config.clickupToken;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -131,36 +93,41 @@ async function checkOut(payload, type) {
 async function leaveRequest(payload, type) {
     try {
         let task = payload;
-        let applicant = task.creator.id ? task.creator.id : false;
         let due_date = moment.unix(task.due_date) || false;
         let start_date = moment.unix(task.start_date) || false;
-        let days_off = Math.round(calcbusinessdays(start_date,due_date)/1000);
         let duration = parseInt(moment.duration(due_date.diff(start_date)).asDays());
+        let creator = task.creator.id ? task.creator.id : false;
+        let applicant = await asyncFilter(task.custom_fields, async (i) => {
+            return i.id == applicant_cf_id;
+        });
+        console.log(applicant[0].value[0].username)
+        console.log(start_date)
+        console.log(due_date)
         // Set assignee
         await axios({
             method: "PUT",
             url: `https://api.clickup.com/api/v2/task/${task.id}`,
             data: {
+                "name":`Leave Request - ${applicant[0].value[0].username} - ${start_date} / ${due_date} `,
                 "assignees": {
                     "add": [8710559]
                 }
             }
         });
 
-        // Set applicant
-        // console.log(applicant)
+        // Set applicant = creator
+        // console.log(creator)
         // await axios({
         //     method: "POST",
         //     url: `https://api.clickup.com/api/v2/task/${task.id}/field/${applicant_cf_id}`,
         //     data: {
         //         "value": {
-        //             "add": [applicant]
+        //             "add": [creator]
         //         }
         //     }
         // });
 
         // Set days off
-        console.log(days_off)
         console.log(duration)
         await axios({
             method: "POST",
@@ -178,19 +145,22 @@ async function leaveRequest(payload, type) {
     }
 }
 
-async function addComment(payload, type) {
+async function leaveApproval(payload, type) {
     try {
         let task = payload;
-        let status = task.status
+
+        let status = task.status ? task.status : false
         let applicant = await asyncFilter(task.custom_fields, async (i) => {
             return i.id == applicant_cf_id;
         });
 
+        let approved_days_off = task.status ? task.status : false
+
         console.log(status)
         console.log(applicant[0].value)
 
-        // Add comment
         if(status.status == 'approved'){
+            //Approved Condition
             console.log('approved')
             await axios({
                 method: "POST",
@@ -202,6 +172,7 @@ async function addComment(payload, type) {
                 }
             });
         }else if(status.status == 'rejected'){
+            //Rejected Condition
             console.log('rejected')
             await axios({
                 method: "POST",
@@ -228,5 +199,5 @@ module.exports = {
     checkIn,
     checkOut,
     leaveRequest,
-    addComment
+    leaveApproval
 }
