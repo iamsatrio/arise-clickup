@@ -16,6 +16,28 @@ const pto_left_cf_id = "88a13479-c474-438f-903b-9de183dab5b7"
 axios.defaults.headers.common['Authorization'] = config.clickupToken;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
+
+function convertMillisecondsToHumanReadableTime(ms) {
+
+    let seconds = Math.floor(ms/1000);
+  
+    let minutes = Math.floor(seconds/60);
+  
+    let hours = Math.floor(minutes/60);
+  
+    seconds = seconds % 60;
+  
+    minutes = minutes % 60;
+  
+    hours = hours < 10 ? "0" + hours : hours;
+  
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+  
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+  
+    return `${hours}:${minutes}:${seconds}`;
+}  
+
 async function checkIn(payload, type) {
     try {
         let task = payload;
@@ -71,12 +93,16 @@ async function checkOut(payload, type) {
     try {
         let task = payload;
         let check_out_time = task.date_closed ? task.date_closed : false;
-        let duration = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))));
+        let duration_miliseconds = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asMilliseconds());
         let duration_hours = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asHours());
+        let duration_days = parseInt(moment.duration(moment.unix(task.date_closed).diff(moment.unix(task.date_created))).asDays());
 
-        
         console.log(`duration hours : ${duration_hours}`)
-        console.log(`duration biasa : ${duration}`)
+        console.log(`duration miliseconds : ${duration_miliseconds}`)
+        console.log(`duration hari : ${duration_days}`)
+        console.log(`duration menit : ${duration_miliseconds/60000}`)
+        console.log(`duration jam : ${duration_miliseconds/3600000}`)
+        console.log(`coba convert${convertMillisecondsToHumanReadableTime(duration_miliseconds)}`)
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${check_out_time_cf_id}`,
@@ -240,7 +266,6 @@ async function leaveApproval(payload, type) {
         console.log("====== End Err ClickUp =====")
     }
 }
-
 
 
 module.exports = {
