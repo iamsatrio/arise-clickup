@@ -226,6 +226,16 @@ async function leaveRequest(payload, type) {
                 "value": pto_left
             }
         });
+
+        await axios({
+            method: "POST",
+            url: `https://api.clickup.com/api/v2/task/${task.id}/comment`,
+            data: {
+                "comment_text": "Someone send a leave request, please review immidiately",
+                "assignee": 8710559,
+                "notify_all": true
+            }
+        });
         
         return 'OK'
     } catch (error) {
