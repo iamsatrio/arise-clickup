@@ -197,18 +197,15 @@ async function leaveRequest(payload, type) {
         });
 
         //Set PTO Left
-        console.log(leave_list_id)
-        console.log(applicant_cf_id)
-        console.log(applicant[0])
-
         let approved_leave = await axios({
             method: "GET",
-            url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
+            url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&assignees[]=${applicant[0].value[0].id}`,
         });
         approved_leave = approved_leave.data.tasks
         
-
-
+        console.log(approved_leave)
+        console.log("=================")
+        
         let pointer = 0
         let pto_left = 12
         while(approved_leave[pointer]){
@@ -217,7 +214,8 @@ async function leaveRequest(payload, type) {
             });
 
             pto_left = pto_left - parseInt(approved_days_off[0].value)
-            // console.log(pto_left)
+            console.log("=================")
+            console.log(pto_left)
             pointer = pointer + 1
         }
 
