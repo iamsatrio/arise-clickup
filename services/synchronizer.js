@@ -160,6 +160,7 @@ async function leaveRequest(payload, type) {
             return i.id == applicant_cf_id;
         });
         console.log(applicant[0].value[0].username)
+        console.log(applicant[0].value[0].id)
         
         // Set assignee & change task title
         await axios({
@@ -168,7 +169,7 @@ async function leaveRequest(payload, type) {
             data: {
                 "name":`Leave Request - ${applicant[0].value[0].username}`,
                 "assignees": {
-                    "add": [8710559]
+                    "add": [`${applicant[0].value[0].id}`]
                 }
             }
         });
@@ -219,6 +220,7 @@ async function leaveRequest(payload, type) {
             // console.log(pto_left)
             pointer = pointer + 1
         }
+
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${pto_left_cf_id}`,
