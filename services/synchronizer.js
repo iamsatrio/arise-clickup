@@ -198,7 +198,7 @@ async function leaveRequest(payload, type) {
         //Set PTO Left
         console.log(leave_list_id)
         console.log(applicant_cf_id)
-        console.log(applicant[0].value[0].id)
+        console.log(applicant[0])
 
         let approved_leave = await axios({
             method: "GET",
