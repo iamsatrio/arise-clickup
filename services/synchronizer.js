@@ -186,7 +186,7 @@ async function leaveRequest(payload, type) {
         // });
 
         // Set Requested Days Off
-        console.log(duration)
+        // console.log(duration)
         await axios({
             method: "POST",
             url: `https://api.clickup.com/api/v2/task/${task.id}/field/${requested_days_off_cf_id}`,
@@ -201,7 +201,7 @@ async function leaveRequest(payload, type) {
             url: `https://api.clickup.com/api/v2/list/${leave_list_id}/task?statuses[]=approved&custom_fields=[{"field_id":"${applicant_cf_id}","operator":"=","value":"${applicant[0].value[0].id}"}]`,
         });
         approved_leave = approved_leave.data.tasks
-        console.log(approved_leave)
+        console.log(approved_leave.custom_fields)
 
 
 
@@ -213,7 +213,7 @@ async function leaveRequest(payload, type) {
             });
 
             pto_left = pto_left - parseInt(approved_days_off[0].value)
-
+            // console.log(pto_left)
             pointer = pointer + 1
         }
         await axios({
